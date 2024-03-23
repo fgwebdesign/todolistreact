@@ -1,0 +1,71 @@
+.verTareasContainer {
+        padding: 20px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        justify-content: flex-start; 
+        margin-left: auto; 
+        margin-right: auto; 
+        max-width: 1200px;
+    }
+
+
+.todoActions {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    display: flex;
+    gap: 10px;
+}
+
+.todoActions .faEdit, .todoActions .faTrash {
+    margin-left: 5px;
+    color: #333;
+}
+
+
+.todoCard {
+        background: #ffeb3b;
+        border-radius: 8px;
+        box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        padding: 20px;
+        width: calc(25% - 20px);
+        margin: 10px;
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 18px;
+        position: relative;
+        word-wrap: break-word;
+        transition: transform 0.2s;
+}
+
+.todoCard:hover {
+        transform: scale(1.03);
+}
+
+.todoTitle {
+        text-decoration: underline;
+        margin-bottom: 0.5em;
+}
+
+.todoDate, .todoCountry, .todoNotes {
+        font-size: 16px;
+        margin-bottom: 0.5em;
+}
+
+@media (min-width: 1025px) {
+        .todoCard {
+            width: calc(25% - 20px);
+        }
+    }
+    
+@media (min-width: 769px) and (max-width: 1024px) {
+        .todoCard {
+            width: calc(50% - 20px);
+        }
+    }
+    
+@media (max-width: 768px) {
+        .todoCard {
+            width: calc(100% - 40px);
+        }
+    }

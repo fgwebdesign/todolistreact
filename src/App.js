@@ -1,24 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Sidebar from './components/Sidebar';
+import TodoApp from './components/todoApp';
+import VerTareas from './pages/VerTareas';
+import { TodoProvider } from './context/TodoContext';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <TodoProvider>
+        <div className='app-container'>
+          <Sidebar />
+          <Routes>
+            <Route path="/" element={<TodoApp />} />
+            <Route path="/crear" element={<TodoApp />} />
+            <Route path="/vertareas" element={<VerTareas />} />
+          </Routes>
+        </div>
+      </TodoProvider>
+    </Router>
   );
 }
 
