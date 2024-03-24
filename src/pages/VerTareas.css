@@ -4,10 +4,32 @@
         flex-wrap: wrap;
         gap: 20px;
         justify-content: flex-start; 
-        margin-left: auto; 
-        margin-right: auto; 
+        margin-left: 200px; 
+        margin-right: 200px;
         max-width: 1200px;
-    }
+}
+
+.finalizeButton {
+    background-color: #4caf50; 
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s, box-shadow 0.3s;
+    margin-top: 10px; 
+    font-weight: bold;
+  }
+  
+  .finalizeButton:hover {
+    background-color: #45a049; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  .completed {
+    opacity: 0.6; /* Reducir la opacidad o cualquier otro estilo deseado */
+    background-color: #cccccc; /* Cambiar el color de fondo para indicar que está completada */
+  }
 
 
 .todoActions {
@@ -22,6 +44,49 @@
     margin-left: 5px;
     color: #333;
 }
+
+.pendingTasksContainer {
+    display: flex;
+    overflow-x: auto;
+    gap: 20px;
+    padding: 30px;
+    margin-bottom: 20px;
+}
+
+.tableContainer {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.TitlePendingTasks {
+    color: #ffff;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: #FFFF;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+tr:hover {
+    background-color: #e8e8e8;
+}
+ 
 
 
 .todoCard {
@@ -67,5 +132,21 @@
 @media (max-width: 768px) {
         .todoCard {
             width: calc(100% - 40px);
+        }
+
+        .verTareasContainer {
+            flex-direction: column;
+            align-items: center;
+        }
+        .pendingTasksContainer {
+            justify-content: flex-start;
+        }
+        .todoCard {
+            /* Asegúrate de que las tarjetas no sean más anchas que la pantalla en móviles */
+            width: 100%;
+            max-width: 300px; /* O el ancho máximo que prefieras para las tarjetas */
+        }
+        .tableContainer {
+            width: 100%;
         }
     }

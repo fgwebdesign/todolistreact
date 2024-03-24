@@ -20,12 +20,20 @@ export const TodoProvider = ({ children }) => {
         );
     };
 
+    const completeTodo = (id) => {
+        setTodos((prevTodos) =>
+            prevTodos.map((todo) => 
+                todo.id === id ? { ...todo, completed: true } : todo
+            )
+        );
+    };
+
     const deleteTodo = id => {
         setTodos(prevTodos => prevTodos.filter(todo => todo.id !== id));
     };
 
     return (
-        <TodoContext.Provider value={{ todos, addTodo, updateTodo, deleteTodo }}>
+        <TodoContext.Provider value={{ todos, addTodo, updateTodo, deleteTodo, completeTodo }}>
             {children}
         </TodoContext.Provider>
     );
