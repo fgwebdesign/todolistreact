@@ -1,19 +1,40 @@
-// VerTareas.js
 import React from 'react';
 import { useTodos } from "../context/TodoContext";
 import './VerTareas.css';
 import { faEdit, faTrash, faCheck } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import Slider from 'react-slick';
+import "slick-carousel/slick/slick.css"; 
+import "slick-carousel/slick/slick-theme.css";
+
 
 const VerTareas = () => {
     const { todos, updateTodo, deleteTodo, completeTodo } = useTodos();
 
-    // No es necesario filtrar las tareas aquí, ya que queremos que la sección de tareas finalizadas siempre esté presente
+    const settings = {
+        dots: true, // Muestra puntos de navegación en la parte inferior del carrusel
+        infinite: false, // No cicla infinitamente
+        speed: 500, // Velocidad de la transición
+        slidesToShow: 3, // Número de diapositivas a mostrar
+        slidesToScroll: 3, // Número de diapositivas para desplazar
+        responsive: [
+            {
+                breakpoint: 768, // Para dispositivos con un ancho menor a 768px
+                settings: {
+                    slidesToShow: 1, // Muestra una diapositiva a la vez
+                    slidesToScroll: 1, // Desplaza una diapositiva
+                }
+            }
+        ]
+    };
+
 
     return (
         <div className="verTareasContainer">
+              <section className="pendingTasksContainer">
             <div className="pendingTasksContainer">
             <h2 className='TitlePendingTasks'>Tareas Pendientes</h2>
+            <Slider {...settings} className="pendingTasksSlider">
             {todos.filter(todo => !todo.completed).map((todo) => (
                 <div key={todo.id} className="todoCard">
                     <h3 className="todoTitle">{todo.title}</h3>
@@ -28,9 +49,13 @@ const VerTareas = () => {
                 </div>
         
             ))}
+            </Slider>
              </div>
-
+             </section>
+             
+            <section className="completedTasksContainer">
             <h2 className='TitlePendingTasks'>Tareas Finalizadas</h2>
+            <div className="tableContainer">
             <table>
                 <thead>
                     <tr>
@@ -55,6 +80,9 @@ const VerTareas = () => {
                     ))}
                 </tbody>
             </table>
+            </div>
+            </section>
+            
         </div>
     );
 };

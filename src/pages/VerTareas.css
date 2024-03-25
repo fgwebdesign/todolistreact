@@ -1,12 +1,29 @@
 .verTareasContainer {
-        padding: 20px;
-        display: flex;
-        flex-wrap: wrap;
-        gap: 20px;
-        justify-content: flex-start; 
-        margin-left: 200px; 
-        margin-right: 200px;
-        max-width: 1200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0px;
+    gap: 20px;
+    width: 100%;
+    max-width: 1400px; /* Ajusta este valor según lo que necesites */
+    margin: 0 auto; /* Centra el contenedor */
+}
+
+.TitlePendingTasks, .TitleCompletedTasks {
+    width: 100%;
+    text-align: center; /* Centra los títulos */
+    color: white; /* O el color que desees */
+    margin-bottom: 20px; /* Espacio antes de las tarjetas o la tabla */
+    
+}
+
+.pendingTasksSlider .slick-slide {
+    margin: 0 10px; /* Espacio entre tarjetas */
+}
+
+
+.pendingTasksSlider .slick-list {
+    overflow: visible; /* Permite que las sombras de las tarjetas sean visibles */
 }
 
 .finalizeButton {
@@ -27,9 +44,13 @@
   }
   
   .completed {
-    opacity: 0.6; /* Reducir la opacidad o cualquier otro estilo deseado */
-    background-color: #cccccc; /* Cambiar el color de fondo para indicar que está completada */
+    opacity: 0.6; 
+    background-color: #cccccc;
   }
+  
+  .completedTasksContainer {
+    width: 100%;
+}
 
 
 .todoActions {
@@ -46,33 +67,34 @@
 }
 
 .pendingTasksContainer {
-    display: flex;
+    width: 100%;
     overflow-x: auto;
-    gap: 20px;
-    padding: 30px;
-    margin-bottom: 20px;
+}
+
+.tasks {
+    display: flex;
+    gap: 0px;
 }
 
 .tableContainer {
-    width: 100%;
-    overflow-x: auto;
-}
-
-.TitlePendingTasks {
-    color: #ffff;
+    width: 100%; /* Ancho del contenedor al 100% del contenedor padre */
+    overflow-x: auto; /* Permite el desplazamiento horizontal si la tabla es más ancha que el contenedor */
+    margin-top: 20px; /* Espacio por encima de la tabla */
+    display: flex; /* Usa flexbox para poder centrar el contenido */
+    justify-content: center; /* Centra la tabla horizontalmente */
 }
 
 table {
-    width: 100%;
+    width: 80%; /* Ancho de la tabla al 80% del contenedor */
     border-collapse: collapse;
-    margin-top: 20px;
     background-color: #FFFF;
+    /* No es necesario el margen superior aquí ya que ya está en .tableContainer */
 }
 
 th, td {
     border: 1px solid #ddd;
-    padding: 8px;
-    text-align: left;
+    padding: 4px;
+    text-align: center;
 }
 
 th {
@@ -142,9 +164,8 @@ tr:hover {
             justify-content: flex-start;
         }
         .todoCard {
-            /* Asegúrate de que las tarjetas no sean más anchas que la pantalla en móviles */
             width: 100%;
-            max-width: 300px; /* O el ancho máximo que prefieras para las tarjetas */
+            max-width: 300px; 
         }
         .tableContainer {
             width: 100%;
