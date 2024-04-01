@@ -4,26 +4,25 @@
     align-items: center;
     padding: 0px;
     gap: 20px;
-    width: 100%;
-    max-width: 1400px; /* Ajusta este valor según lo que necesites */
-    margin: 0 auto; /* Centra el contenedor */
+    width: 70%;
+    max-width: 1400px;
+    margin: 0 auto;
 }
 
 .TitlePendingTasks, .TitleCompletedTasks {
     width: 100%;
-    text-align: center; /* Centra los títulos */
-    color: white; /* O el color que desees */
-    margin-bottom: 20px; /* Espacio antes de las tarjetas o la tabla */
-    
+    text-align: center;
+    color: white;
+    margin-bottom: 20px;
+    margin-top: 20px;
 }
 
 .pendingTasksSlider .slick-slide {
-    margin: 0 10px; /* Espacio entre tarjetas */
+    margin: 5 px;
 }
 
-
 .pendingTasksSlider .slick-list {
-    overflow: visible; /* Permite que las sombras de las tarjetas sean visibles */
+    overflow: visible;
 }
 
 .finalizeButton {
@@ -36,22 +35,21 @@
     transition: background-color 0.3s, box-shadow 0.3s;
     margin-top: 10px; 
     font-weight: bold;
-  }
-  
-  .finalizeButton:hover {
-    background-color: #45a049; 
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  }
-  
-  .completed {
-    opacity: 0.6; 
-    background-color: #cccccc;
-  }
-  
-  .completedTasksContainer {
-    width: 100%;
 }
 
+.finalizeButton:hover {
+    background-color: #45a049; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.completed {
+    opacity: 0.6; 
+    background-color: #cccccc;
+}
+
+.completedTasksContainer {
+    width: 100%;
+}
 
 .todoActions {
     position: absolute;
@@ -73,22 +71,21 @@
 
 .tasks {
     display: flex;
-    gap: 0px;
+    gap: 5px;
 }
 
 .tableContainer {
-    width: 100%; /* Ancho del contenedor al 100% del contenedor padre */
-    overflow-x: auto; /* Permite el desplazamiento horizontal si la tabla es más ancha que el contenedor */
-    margin-top: 20px; /* Espacio por encima de la tabla */
-    display: flex; /* Usa flexbox para poder centrar el contenido */
-    justify-content: center; /* Centra la tabla horizontalmente */
+    width: 100%;
+    overflow-x: auto;
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
 }
 
 table {
-    width: 80%; /* Ancho de la tabla al 80% del contenedor */
+    width: 100%;
     border-collapse: collapse;
     background-color: #FFFF;
-    /* No es necesario el margen superior aquí ya que ya está en .tableContainer */
 }
 
 th, td {
@@ -98,7 +95,8 @@ th, td {
 }
 
 th {
-    background-color: #f2f2f2;
+    background-color: #527ec5;
+    color: white;
 }
 
 tr:nth-child(even) {
@@ -108,66 +106,64 @@ tr:nth-child(even) {
 tr:hover {
     background-color: #e8e8e8;
 }
- 
-
 
 .todoCard {
-        background: #ffeb3b;
-        border-radius: 8px;
-        box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
-        padding: 20px;
-        width: calc(25% - 20px);
-        margin: 10px;
-        font-family: 'Courier New', Courier, monospace;
-        font-size: 18px;
-        position: relative;
-        word-wrap: break-word;
-        transition: transform 0.2s;
+    background: #ffeb3b;
+    border-radius: 8px;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    width: calc(25% - 20px);
+    margin: 10px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 18px;
+    position: relative;
+    word-wrap: break-word;
+    transition: transform 0.2s;
 }
 
 .todoCard:hover {
-        transform: scale(1.03);
+    transform: scale(1.03);
 }
 
 .todoTitle {
-        text-decoration: underline;
-        margin-bottom: 0.5em;
+    text-decoration: underline;
+    margin-bottom: 0.5em;
 }
 
 .todoDate, .todoCountry, .todoNotes {
-        font-size: 16px;
-        margin-bottom: 0.5em;
+    font-size: 16px;
+    margin-bottom: 0.5em;
 }
 
 @media (min-width: 1025px) {
-        .todoCard {
-            width: calc(25% - 20px);
-        }
+    .todoCard {
+        width: calc(25% - 20px);
     }
-    
-@media (min-width: 769px) and (max-width: 1024px) {
-        .todoCard {
-            width: calc(50% - 20px);
-        }
-    }
-    
-@media (max-width: 768px) {
-        .todoCard {
-            width: calc(100% - 40px);
-        }
+}
 
-        .verTareasContainer {
-            flex-direction: column;
-            align-items: center;
-        }
-        .pendingTasksContainer {
-            justify-content: flex-start;
-        }
-        .todoCard {
-            width: 100%;
-            max-width: 300px; 
-        }
-        .tableContainer {
-            width: 100%;
-        }
+@media (min-width: 769px) and (max-width: 1024px) {
+    .todoCard {
+        width: calc(50% - 20px);
     }
+}
+
+@media (max-width: 768px) {
+    .todoCard {
+        width: calc(100% - 40px);
+    }
+
+    .verTareasContainer {
+        flex-direction: column;
+        align-items: center;
+    }
+    .pendingTasksContainer {
+        justify-content: flex-start;
+    }
+    .todoCard {
+        width: 100%;
+        max-width: 300px; 
+    }
+    .tableContainer {
+        width: 100%;
+    }
+}

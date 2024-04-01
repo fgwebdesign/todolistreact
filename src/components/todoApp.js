@@ -10,6 +10,8 @@ import { ThemeProvider, createTheme } from '@mui/material/styles';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCalendarAlt } from '@fortawesome/free-solid-svg-icons';
 import { useTodos } from "../context/TodoContext"; 
+import * as Flags from 'country-flag-icons/react/3x2';
+
 
 export default function TodoApp() {
     const [title, setTitle] = useState("");
@@ -19,11 +21,19 @@ export default function TodoApp() {
     const [error, setError] = useState(false);
 
     const { addTodo } = useTodos();
+    const FlagTest = Flags['US'];
 
-    const countriesOptions = Object.entries(getNameList()).map(([code, name]) => ({
-        value: code,
-        label: name
-    }));
+    const countriesOptions = Object.entries(getNameList()).map(([code, name]) => {
+        const Flag = Flags[code]; 
+        return {
+            value: code,
+            label: name,
+            flag: Flag ? <Flag /> : null 
+        };
+    });
+    
+    
+    
 
     const themeTooltip = createTheme({
         components: {
@@ -77,8 +87,10 @@ export default function TodoApp() {
 
     return (
         <ThemeProvider theme={themeTooltip}>
+            <div className="todoContainerTitle">
+            <h1 className="titleTodoListApp">Todo List React App</h1>
+            </div>
             <div className="todoContainer">
-                <h1 className="titleTodoListApp">Todo List React App</h1>
                 <p className="subtitleTodoListApp">Detalles de la tarea</p>
                 <form className="todoCreateForm" onSubmit={handleSubmit}>
                     <Tooltip
@@ -95,12 +107,20 @@ export default function TodoApp() {
                         />
                     </Tooltip>
                     <Select
-                        options={countriesOptions}
-                        value={selectedCountry}
-                        onChange={setSelectedCountry}
-                        className="selectCountry"
-                        placeholder="Seleccione un país..."
-                    />
+    options={countriesOptions}
+    formatOptionLabel={({ label, flag }) => (
+        <div style={{ display: "flex", alignItems: "center" }}>
+            <div style={{ marginRight: "10px" }}>{flag}</div>
+            <div>{label}</div> {/* Muestra el nombre completo del país */}
+        </div>
+    )}
+    value={selectedCountry}
+    onChange={setSelectedCountry}
+    className="selectCountry"
+    placeholder="Seleccione un país..."
+/>
+
+
                     <DatePicker
                         selected={date}
                         onChange={date => setDate(date)}

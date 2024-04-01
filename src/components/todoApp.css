@@ -27,8 +27,21 @@
 display: flex;
 align-items: center;
 justify-content: center;
-margin-top: 20px;
+margin-top: 0px;
+background: linear-gradient(to right, #25138d 0%, #2575fc 100%);
+border-radius: 20px;
+color: black;
 }
+
+.todoContainerTitle {
+    margin-left: 180px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 0px;
+    border-radius: 20px;
+    color: black;
+    }
 
 .todoCreateForm {
     width: 100%; 
@@ -81,9 +94,9 @@ border-radius: 3px;
 -moz-border-radius: 3px;
 -ms-border-radius: 3px;
 -o-border-radius: 3px;
-background-color: rgb(26, 76, 169);
+background-color: rgb(61, 147, 60);
 color: white;
-padding: 10px 20px;
+padding: 30px 60px;
 font-family: 'Montserrat', sans-serif;
 margin-top: 10px;
 }
@@ -93,8 +106,9 @@ margin-top: 10px;
     display: flex;
     flex-direction: column;
     gap: 5px;
-    margin-top: 300px;
-    margin-left: 300px;
+    margin-top: 240px;
+    margin-left: 180px;
+    padding-bottom: 20px;
     transform: translateY(-30%);
     -webkit-transform: translateY(-30%);
     -moz-transform: translateY(-30%);
